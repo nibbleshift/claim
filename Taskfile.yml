@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  cmd: 
+    taskfile: ./cmd/Taskfile.yml
+    dir: ./cmd
+
+tasks:
+  check:
+    - staticcheck ./...
+    - go vet ./...
+  default:
+    cmds:
+      - task: cmd:default
